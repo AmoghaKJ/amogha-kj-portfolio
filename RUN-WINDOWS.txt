@@ -1,0 +1,10 @@
+AMOGHA PORTFOLIO - WINDOWS START
+1. Extract this ZIP.
+2. Open the extracted folder in VS Code.
+3. Open Terminal in the folder.
+4. Run: npm install
+5. Run: npm run dev
+6. Open the Local URL shown by Vite, usually http://localhost:5173/
+
+If npm is not recognized, install Node.js LTS first.
+Do NOT double-click index.html; this is a Vite/React application.
