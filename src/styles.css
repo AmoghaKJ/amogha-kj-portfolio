@@ -64,3 +64,13 @@ body{font-family:'Space Mono',monospace;background:#0b0711;color:#faf7ff}
 .project-card,.skill-group,.cert-card,.edu-card,.contact-form{box-shadow:0 18px 60px rgba(0,0,0,.22)}
 @media(max-width:900px){.neon-hero{grid-template-columns:1fr;padding-top:130px;gap:10px}.neon-hero .hero-content{max-width:760px}.neon-portrait-wrap{height:470px}.portrait-sun{width:min(72vw,430px)}.neon-portrait{width:min(66vw,390px);height:430px}.neon-copy h1{font-size:clamp(3rem,10vw,5rem)}}
 @media(max-width:560px){.neon-hero{padding:115px 22px 75px}.hero-tags{margin:22px 0 30px}.neon-portrait-wrap{height:370px}.neon-portrait{height:345px;width:78vw}.portrait-sun{width:78vw}.floating-badge{width:48px;height:48px}.neon-copy .hero-copy{font-size:.85rem}.neon-copy h1{font-size:3rem}}
+
+/* Fix hero name spacing and make the theme toggle change the actual page colors */
+:root{--bg:#f6f3fa;--surface:rgba(255,255,255,.82);--surface2:#fff;--text:#21142a;--muted:#655a70;--line:rgba(117,42,150,.18);--accent:#a900d8;--accent2:#007eaa;--glow:rgba(169,0,216,.14)}
+.dark{--bg:#0b0711;--surface:rgba(25,12,38,.78);--surface2:#12091c;--text:#faf7ff;--muted:#aaa0b7;--line:rgba(229,36,255,.20);--accent:#d91cff;--accent2:#22e5ff;--glow:rgba(218,28,255,.25)}
+body{background:var(--bg);color:var(--text);transition:background .3s ease,color .3s ease}
+.neon-copy h1{display:flex;align-items:baseline;flex-wrap:wrap;column-gap:.18em;letter-spacing:-.055em;word-spacing:0}
+.neon-copy h1 em{display:inline-block;letter-spacing:-.035em;white-space:nowrap}
+.navbar{color:var(--text)}
+.section{color:var(--text)}
+@media(max-width:560px){.neon-copy h1{column-gap:.12em;letter-spacing:-.06em}}
