@@ -102,7 +102,7 @@ function Hero() {
       <motion.div initial={{opacity:0,y:16}} animate={{opacity:1,y:0}} className="status-pill"><span></span> Available for opportunities</motion.div>
       <div className="hero-tags"><span>Full-Stack</span><span>Java</span><span>React</span></div>
       <motion.p className="hello" initial={{opacity:0}} animate={{opacity:1}}>Hello, I'm</motion.p>
-      <motion.h1 initial={{opacity:0,y:20}} animate={{opacity:1,y:0}}>AMOGHA <em>K. J</em></motion.h1>
+      <motion.h1 initial={{opacity:0,y:20}} animate={{opacity:1,y:0}}>AMOGHA<em>K. J</em></motion.h1>
       <div className="role-wrap"><span>I build with </span><AnimatePresence mode="wait"><motion.strong key={roles[i]} initial={{y:14,opacity:0}} animate={{y:0,opacity:1}} exit={{y:-14,opacity:0}}>{roles[i]}</motion.strong></AnimatePresence></div>
       <motion.p className="hero-copy" initial={{opacity:0,y:14}} animate={{opacity:1,y:0}}>Turning ideas into useful digital experiences through thoughtful code, reliable backend systems, and clean user interfaces.</motion.p>
       <motion.div className="cta-row" initial={{opacity:0,y:14}} animate={{opacity:1,y:0}}>
