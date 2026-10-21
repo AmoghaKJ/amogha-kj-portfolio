@@ -204,9 +204,16 @@ function Education() {
   return <section id="education" className="section"><SectionHeading eyebrow="07 / EDUCATION" title="Education"/><div className="edu-timeline">{data.map((x,i)=><motion.div className="edu-card" key={x[0]} initial={{opacity:0,x:i%2?-25:25}} whileInView={{opacity:1,x:0}} viewport={{once:true}}><div className="edu-icon"><GraduationCap/></div><span className="edu-index">0{i+1}</span><h3>{x[0]}</h3><p>{x[1]}</p><span>{x[2]}</span><strong>{x[3]}</strong></motion.div>)}</div></section>
 }
 function Certifications() {
-  return <section id="certifications" className="section"><SectionHeading eyebrow="08 / CREDENTIALS" title="Certifications"/><div className="cert-grid">
-    {[["Introduction to Generative AI","Google"],["Fundamentals of Data Structures in C",""]].map(([a,b],i)=><motion.div className="cert-card glass" key={a} whileHover={{y:-6}} initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}}><div className="cert-icon"><ShieldCheck/></div><span>0{i+1}</span><h3>{a}</h3>{b&&<p>{b}</p>}<a href="#contact">View Certificate <ArrowUpRight size={15}/></a></motion.div>)}
-  </div></section>
+  const certifications = [
+    {title:"JPMorganChase Software Engineering Job Simulation",issuer:"Forage",issued:"January 2026",detail:"Kafka, Spring Boot, transaction validation, Spring Data JPA, H2, REST APIs and Maven testing.",credential:"vryZTR55im3ytM2S8",url:"https://www.theforage.com/"},
+    {title:"Introduction to Generative AI",issuer:"Google",issued:"Certificate listed on LinkedIn",detail:"Foundational learning in generative AI.",url:"https://www.linkedin.com/in/amoghakj/"},
+    {title:"Fundamentals of Data Structures in C",issuer:"",issued:"Certificate listed on LinkedIn",detail:"Core data structures and programming concepts.",url:"https://www.linkedin.com/in/amoghakj/"}
+  ];
+  return <section id="certifications" className="section"><SectionHeading eyebrow="08 / CREDENTIALS" title="Certifications" sub="Selected certifications and hands-on learning."/><div className="cert-grid">
+    {certifications.map((cert,i)=><motion.div className="cert-card glass" key={cert.title} whileHover={{y:-6}} initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}}>
+      <div className="cert-icon"><ShieldCheck/></div><span>0{i+1}</span><h3>{cert.title}</h3>{cert.issuer&&<p>{cert.issuer}</p>}<small>{cert.issued}</small><p>{cert.detail}</p>{cert.credential&&<small>Credential ID: {cert.credential}</small>}<a href={cert.url} target="_blank" rel="noreferrer">View Details <ArrowUpRight size={15}/></a>
+    </motion.div>)}
+  </div><p className="cert-note">More certificates and credential links are available on <a href="https://www.linkedin.com/in/amoghakj/" target="_blank" rel="noreferrer">my LinkedIn profile</a>.</p></section>
 }
 function Strengths() {
   return <section className="section strengths"><SectionHeading eyebrow="09 / VALUE" title="What I Bring"/><div className="strength-grid">{strengths.map((s,i)=><motion.div className="strength" key={s} initial={{opacity:0,scale:.94}} whileInView={{opacity:1,scale:1}} viewport={{once:true}} transition={{delay:i*.04}} whileHover={{y:-5}}><span>{String(i+1).padStart(2,"0")}</span><Sparkles size={18}/><b>{s}</b></motion.div>)}</div></section>
