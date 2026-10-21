@@ -205,13 +205,14 @@ function Education() {
 }
 function Certifications() {
   const certifications = [
+    {title:"Python for Data Science",issuer:"NPTEL · IIT Madras",issued:"July–August 2026",detail:"Elite certification · Consolidated score: 63% (Online Assignments: 18.58/25; Proctored Exam: 43.5/75).",credential:"Roll No. NPTEL26CS107S152201244",url:"https://nptel.ac.in/"},
+    {title:"Introduction to Generative AI",issuer:"Google Cloud · Simplilearn SkillUp",issued:"8 November 2025",detail:"Completed the online course Introduction to Generative AI. Certificate code: 9353398.",credential:"Certificate Code: 9353398",url:"https://www.simplilearn.com/skillup-free-online-courses"},
     {title:"JPMorganChase Software Engineering Job Simulation",issuer:"Forage",issued:"January 2026",detail:"Kafka, Spring Boot, transaction validation, Spring Data JPA, H2, REST APIs and Maven testing.",credential:"vryZTR55im3ytM2S8",url:"https://www.theforage.com/"},
-    {title:"Introduction to Generative AI",issuer:"Google",issued:"Certificate listed on LinkedIn",detail:"Foundational learning in generative AI.",url:"https://www.linkedin.com/in/amoghakj/"},
     {title:"Fundamentals of Data Structures in C",issuer:"",issued:"Certificate listed on LinkedIn",detail:"Core data structures and programming concepts.",url:"https://www.linkedin.com/in/amoghakj/"}
   ];
   return <section id="certifications" className="section"><SectionHeading eyebrow="08 / CREDENTIALS" title="Certifications" sub="Selected certifications and hands-on learning."/><div className="cert-grid">
     {certifications.map((cert,i)=><motion.div className="cert-card glass" key={cert.title} whileHover={{y:-6}} initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}}>
-      <div className="cert-icon"><ShieldCheck/></div><span>0{i+1}</span><h3>{cert.title}</h3>{cert.issuer&&<p>{cert.issuer}</p>}<small>{cert.issued}</small><p>{cert.detail}</p>{cert.credential&&<small>Credential ID: {cert.credential}</small>}<a href={cert.url} target="_blank" rel="noreferrer">View Details <ArrowUpRight size={15}/></a>
+      <div className="cert-icon"><ShieldCheck/></div><span>0{i+1}</span><h3>{cert.title}</h3>{cert.issuer&&<p>{cert.issuer}</p>}<small>{cert.issued}</small><p>{cert.detail}</p>{cert.credential&&<small>{cert.credential.startsWith("Roll No.") ? cert.credential : cert.credential.startsWith("Certificate Code:") ? cert.credential : "Credential ID: "+cert.credential}</small>}<a href={cert.url} target="_blank" rel="noreferrer">Issuer Website <ArrowUpRight size={15}/></a>
     </motion.div>)}
   </div><p className="cert-note">More certificates and credential links are available on <a href="https://www.linkedin.com/in/amoghakj/" target="_blank" rel="noreferrer">my LinkedIn profile</a>.</p></section>
 }
