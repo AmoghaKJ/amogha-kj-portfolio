@@ -159,19 +159,31 @@ function Experience() {
   </section>
 }
 function Projects() {
-  return <section id="projects" className="section"><SectionHeading eyebrow="05 / SELECTED WORK" title="Featured Projects" sub="Application engineering with secure data flows and responsive interfaces."/>
-    <motion.article className="project-card glass" whileHover={{y:-8}} initial={{opacity:0,y:30}} whileInView={{opacity:1,y:0}} viewport={{once:true}}>
-      <div className="project-visual"><div className="code-window"><div className="window-top"><i/><i/><i/><span>auth-service.js</span></div><pre>{`const session = authenticate(user);
-if (session.valid) {
-  authorize(session);
-  return fetchUserData();
-}`}</pre><div className="scan"></div></div><div className="floating-db"><Database size={22}/><span>secure data</span></div></div>
-      <div className="project-info"><span className="tag">FULL-STACK APPLICATION</span><h3>Full-Stack Web Application with Secure Authentication</h3><p>Full-stack web application focused on secure authentication, data storage, retrieval, responsiveness, and reliable application performance.</p>
-        <div className="feature-list">{["User authentication","Authorization","Data storage","Data retrieval","Performance optimization","Responsive interface","Version control"].map(x=><span key={x}><CheckCircle2 size={14}/>{x}</span>)}</div>
-        <div className="techs">{["React JS","JavaScript","SQL","Git","Agile"].map(x=><span key={x}>{x}</span>)}</div>
-        <div className="project-actions"><a href="#contact">View Project <ArrowUpRight size={16}/></a><a href="https://github.com/AmoghaKJ/amogha-kj-portfolio"><Github size={16}/> GitHub</a></div>
+  const projects = [
+    {
+      title: "Student Management System",
+      category: "FULL-STACK • REAL-TIME APPLICATION",
+      description: "A full-stack academic intelligence dashboard built with a Spring Boot backend and React (Vite) frontend. It supports student records, role-based access, academic analytics, notifications, and live dashboard updates using Server-Sent Events.",
+      features: ["Student record management","Role-based access control","Live updates with SSE","Academic analytics","GPA and CGPA tracking","Notifications and announcements","MongoDB with in-memory fallback"],
+      tech: ["Java","Spring Boot","React","Vite","MongoDB","REST APIs","Server-Sent Events"],
+      repo: "https://github.com/AmoghaKJ/student-management-system",
+      label: "MAIN PROJECT"
+    }
+  ];
+  return <section id="projects" className="section"><SectionHeading eyebrow="05 / SELECTED WORK" title="Featured Project" sub="A closer look at my current full-stack project."/>
+    {projects.map(project => <motion.article className="project-card glass" key={project.title} whileHover={{y:-8}} initial={{opacity:0,y:30}} whileInView={{opacity:1,y:0}} viewport={{once:true}}>
+      <div className="project-visual"><div className="code-window"><div className="window-top"><i/><i/><i/><span>StudentManagementApplication.java</span></div><pre>{`@RestController
+@RequestMapping("/api/students")
+public class StudentController {
+  // Student records and analytics
+  // Real-time updates via SSE
+}`}</pre><div className="scan"></div></div><div className="floating-db"><Database size={22}/><span>student data</span></div></div>
+      <div className="project-info"><span className="tag">{project.category}</span><h3>{project.title}</h3><p>{project.description}</p>
+        <div className="feature-list">{project.features.map(x=><span key={x}><CheckCircle2 size={14}/>{x}</span>)}</div>
+        <div className="techs">{project.tech.map(x=><span key={x}>{x}</span>)}</div>
+        <div className="project-actions"><a href={project.repo} target="_blank" rel="noreferrer">View Project <ArrowUpRight size={16}/></a><a href={project.repo} target="_blank" rel="noreferrer"><Github size={16}/> GitHub</a></div>
       </div>
-    </motion.article>
+    </motion.article>)}
   </section>
 }
 function Dashboard() {
