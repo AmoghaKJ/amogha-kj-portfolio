@@ -93,29 +93,22 @@ function Navbar({theme,setTheme}) {
   </header>
 }
 function Hero() {
-  const roles=["Full-Stack Developer","Software Developer","Java & Spring Boot","Data Enthusiast","Problem Solver"];
+  const roles=["Data Analyst","Software Developer","Backend Developer","Data Enthusiast","Problem Solver"];
   const [i,setI]=useState(0);
-  useEffect(()=>{const t=setInterval(()=>setI(v=>(v+1)%roles.length),2400);return()=>clearInterval(t)},[]);
-  return <section id="home" className="hero neon-hero">
+  useEffect(()=>{const t=setInterval(()=>setI(v=>(v+1)%roles.length),2200);return()=>clearInterval(t)},[]);
+  return <section id="home" className="hero">
     <AnimatedBackground/>
-    <div className="hero-content neon-copy">
-      <motion.div initial={{opacity:0,y:16}} animate={{opacity:1,y:0}} className="status-pill"><span></span> Available for opportunities</motion.div>
-      <div className="hero-tags"><span>Full-Stack</span><span>Java</span><span>React</span></div>
-      <motion.p className="hello" initial={{opacity:0}} animate={{opacity:1}}>Hello, I'm</motion.p>
-      <motion.h1 initial={{opacity:0,y:20}} animate={{opacity:1,y:0}}>AMOGHA<em>K. J</em></motion.h1>
-      <div className="role-wrap"><span>I build with </span><AnimatePresence mode="wait"><motion.strong key={roles[i]} initial={{y:14,opacity:0}} animate={{y:0,opacity:1}} exit={{y:-14,opacity:0}}>{roles[i]}</motion.strong></AnimatePresence></div>
-      <motion.p className="hero-copy" initial={{opacity:0,y:14}} animate={{opacity:1,y:0}}>Turning ideas into useful digital experiences through thoughtful code, reliable backend systems, and clean user interfaces.</motion.p>
-      <motion.div className="cta-row" initial={{opacity:0,y:14}} animate={{opacity:1,y:0}}>
-        <button className="btn primary" onClick={()=>document.getElementById("projects").scrollIntoView({behavior:"smooth"})}>Explore My Work <ArrowDown size={17}/></button>
+    <div className="hero-content">
+      <motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:.7}} className="status-pill"><span></span> Available for opportunities</motion.div>
+      <motion.p className="hello" initial={{opacity:0}} animate={{opacity:1}} transition={{delay:.15}}>Hello, I'm</motion.p>
+      <motion.h1 initial={{opacity:0,y:25}} animate={{opacity:1,y:0}} transition={{delay:.2}}>AMOGHA <em>K. J</em></motion.h1>
+      <div className="role-wrap"><span>I build with </span><AnimatePresence mode="wait"><motion.strong key={roles[i]} initial={{y:18,opacity:0}} animate={{y:0,opacity:1}} exit={{y:-18,opacity:0}}>{roles[i]}</motion.strong></AnimatePresence></div>
+      <motion.p className="hero-copy" initial={{opacity:0,y:15}} animate={{opacity:1,y:0}} transition={{delay:.4}}>Computer Science undergraduate passionate about turning structured data into meaningful insights and building reliable software systems.</motion.p>
+      <motion.div className="cta-row" initial={{opacity:0,y:15}} animate={{opacity:1,y:0}} transition={{delay:.55}}>
+        <button className="btn primary" onClick={()=>document.getElementById("projects").scrollIntoView({behavior:"smooth"})}>View My Work <ArrowDown size={17}/></button>
         <a className="btn ghost" href="/amogha-kj-portfolio/AMOGHA_KJ_MERN_Stack_Developer_Intern_Resume.pdf" download>Download Resume <Download size={17}/></a>
       </motion.div>
-      <div className="connect-row"><span>Let's Connect</span><i></i><a href="https://linkedin.com/in/amoghakj" target="_blank" rel="noreferrer"><Linkedin size={18}/></a><a href="https://github.com/AmoghaKJ" target="_blank" rel="noreferrer"><Github size={18}/></a><a href="mailto:amoghakj07@gmail.com"><Mail size={18}/></a></div>
-    </div>
-    <div className="neon-portrait-wrap">
-      <div className="portrait-sun"></div><div className="portrait-orbit orbit-one"></div><div className="portrait-orbit orbit-two"></div>
-      <div className="neon-portrait"><img src="/amogha-kj-portfolio/profile.jpg" alt="Amogha K. J profile portrait" onError={e=>{e.currentTarget.style.opacity="0";}}/><div className="portrait-fallback"><UserRound size={88}/><span>AMOGHA K. J</span></div></div>
-      <div className="floating-badge badge-github"><Github size={27}/></div><div className="floating-badge badge-code"><Code2 size={25}/></div><div className="floating-badge badge-db"><Database size={23}/></div>
-      <span className="spark spark-a">✦</span><span className="spark spark-b">✦</span><span className="spark spark-c">✧</span>
+      <div className="connect-row"><span>Let's Connect</span><i></i><a href="https://linkedin.com/in/amoghakj" target="_blank" rel="noreferrer"><Linkedin size={18}/></a><a href="https://github.com/AmoghaKJ/amogha-kj-portfolio"><Github size={18}/></a><a href="mailto:amoghakj07@gmail.com"><Mail size={18}/></a></div>
     </div>
     <div className="scroll-hint"><MousePointer2 size={15}/> Scroll to explore</div>
   </section>
@@ -123,15 +116,15 @@ function Hero() {
 function About() {
   const ref=useRef(null), inView=useInView(ref,{once:true,amount:.25});
   return <section id="about" className="section about" ref={ref}>
-    <SectionHeading eyebrow="01 / PROFILE" title="About Me" sub="Curious mind. Thoughtful code. Practical solutions."/>
+    <SectionHeading eyebrow="01 / PROFILE" title="About Me" sub="Data thinking meets software engineering."/>
     <div className="about-grid">
-      <motion.div className="profile-card about-photo-card" initial={{opacity:0,x:-30}} whileInView={{opacity:1,x:0}} viewport={{once:true}}>
-        <div className="profile-ring"><img className="about-profile-img" src="/amogha-kj-portfolio/profile.jpg" alt="Amogha K. J" onError={e=>{e.currentTarget.style.display="none";}}/><div className="profile-placeholder"><UserRound size={64}/><small>AMOGHA K. J</small></div></div>
+      <motion.div className="profile-card" initial={{opacity:0,x:-30}} whileInView={{opacity:1,x:0}} viewport={{once:true}}>
+        <div className="profile-ring"><div className="profile-placeholder"><UserRound size={64}/><small>[Profile Image]</small></div></div>
         <div className="profile-code"><span>const</span> focus = <b>"data → code → solutions"</b>;</div>
       </motion.div>
       <motion.div className="about-copy">
-        <p>I'm a Computer Science undergraduate interested in full-stack development, backend engineering, and data-driven problem solving. I enjoy building useful applications, shaping clean interfaces, and turning complex requirements into practical software.</p>
-        <p>My current featured project is a Student Management System built with Spring Boot and React, with student records, academic analytics, role-based access, and real-time updates.</p>
+        <p>Computer Science undergraduate with hands-on experience in SQL, data validation, backend systems, and web development. Comfortable collecting, cleaning, querying, and working with structured data while building reliable application features. I enjoy solving problems through data-driven analysis and developing efficient software solutions.</p>
+        <p>With experience working in Agile environments, I have contributed to application performance improvements, data validation, debugging, and full-stack development.</p>
         <div className="stats-grid">{stats.map(([n,l])=><Stat key={l} target={n} label={l} active={inView}/>)}</div>
       </motion.div>
     </div>
